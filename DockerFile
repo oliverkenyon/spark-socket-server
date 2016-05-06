@@ -1,0 +1,12 @@
+FROM risingstack/alpine:3.3-v4.2.6-1.1.3
+
+RUN apk add --update  bash
+
+RUN /usr/bin/npm install ws
+
+EXPOSE 8082
+
+COPY server.js /usr/src/node-app/
+
+ENTRYPOINT ["/usr/bin/node", "/usr/src/node-app/server.js"]
+
