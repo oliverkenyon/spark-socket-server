@@ -7,6 +7,10 @@ RUN /usr/bin/npm install ws
 EXPOSE 8082
 
 COPY server.js /usr/src/node-app/
+COPY package.json /usr/src/node-app/
+WORKDIR /usr/src/node-app/
+
+RUN npm install
 
 ENTRYPOINT ["/usr/bin/node", "/usr/src/node-app/server.js"]
 
